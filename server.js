@@ -6,7 +6,7 @@ const { GoogleGenAI, Type } = require("@google/genai");
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
@@ -145,7 +145,7 @@ agricultural officer or agronomist.
 });
 
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
 
     console.log(
         `🌾 Crop Doctor running at http://localhost:${PORT}`
